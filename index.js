@@ -63,6 +63,7 @@ app.post('/login', async (req, res) => {
 
     res.send({ token });
 })
+// /products
 // app.post, app.get, app.patch = app.put, app.delete
 
 app.post('/register', async (req, res) => {
@@ -112,6 +113,11 @@ app.post('/products', isAuthenticated, isAdmin, async (req, res) => {
         ...data,
     })
 })
+
+// test = {hello: 'world', name: 'bob'}
+// {test} = {{hello: 'world', name: 'bob'}}
+// {...test} = {hello: 'world', name: 'bob'}
+// ...test -> hello: 'world', name: 'bob'
 
 const errorHandlerWrapper = (fn) => {
     return async (req, res, next) => {
